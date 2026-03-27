@@ -19,7 +19,7 @@ echo "zen · 4x4 breathing"
 echo ""
 
 for ((r = 1; r <= ROUNDS; r++)); do
-  echo "round $r/$ROUNDS"
+  echo "ROUND $r/$ROUNDS"
   phase "INHALE"
   phase "HOLD"
   phase "EXHALE"
