@@ -1,17 +1,21 @@
 {
-  "name": "zen-marketplace",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "zen",
   "owner": {
-    "name": "kropdx"
-  },
-  "metadata": {
-    "description": "Mindfulness tools for developers using Claude Code"
+    "name": "kropdx",
+    "url": "https://github.com/kropdx"
   },
   "plugins": [
     {
       "name": "zen",
-      "source": { "type": "github", "repo": "kropdx/zen" },
       "description": "Random zen quotes + guided 4x4 breathing exercise in your terminal",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "author": {
+        "name": "kropdx",
+        "url": "https://github.com/kropdx"
+      },
+      "source": "./",
+      "homepage": "https://github.com/kropdx/zen"
     }
   ]
 }
