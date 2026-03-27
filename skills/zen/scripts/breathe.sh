@@ -1,227 +1,266 @@
 #!/usr/bin/env bash
 # Zen 4x4 Breathing Exercise
-# Writes directly to /dev/tty so cursor animation renders in the real terminal.
+#
+# When run from Claude Code (no real TTY), this script opens a dedicated
+# terminal window for the animation, waits for it to finish, then returns.
+# When run with --direct, it renders the animation inline.
 
-exec > /dev/tty 2>&1
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SCRIPT_PATH="$SCRIPT_DIR/breathe.sh"
 
-CYAN='\033[0;36m'
-BLUE='\033[0;34m'
-DIM='\033[2m'
-BOLD='\033[1m'
-RESET='\033[0m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-MAGENTA='\033[0;35m'
+# ─── Direct mode: real terminal, render animation ────────────────────────────
+if [[ "$1" == "--direct" ]]; then
 
-TOTAL_ROUNDS=4
-PHASE_SECONDS=4
-FRAME_HEIGHT=9   # lines per frame
-TOTAL_FRAMES=6   # 0..5
+  CYAN='\033[0;36m'
+  DIM='\033[2m'
+  BOLD='\033[1m'
+  RESET='\033[0m'
+  GREEN='\033[0;32m'
+  YELLOW='\033[0;33m'
+  MAGENTA='\033[0;35m'
 
-# Hide cursor; restore on exit
-printf '\033[?25l'
-trap 'printf "\033[?25h"' EXIT
+  TOTAL_ROUNDS=4
+  PHASE_SECONDS=4
+  FPS=12
 
-# ─── Pre-designed circle frames ──────────────────────────────────────────────
-# Each frame is FRAME_HEIGHT lines.
-# Canvas: 37 chars wide, center col 18 (0-indexed).
-# Chars are ~2× taller than wide, so visual circles need to be ~2× wider than tall.
-# Radius in visual units r → row-span ≈ r/2, col-span ≈ r.
+  printf '\033[?25l'          # hide cursor
+  trap 'printf "\033[?25h"' EXIT
 
-# Frame index → array of lines (stored flat: frame f, line l → IDX = f*9 + l)
-declare -a F
+  # ── Circle frames (9 lines each) ─────────────────────────────────────────
+  declare -a FRAME
+  LINES_PER_FRAME=9
 
-# F0: just a dot
-F[0]="                                     "
-F[1]="                                     "
-F[2]="                                     "
-F[3]="                                     "
-F[4]="                  ●                  "
-F[5]="                                     "
-F[6]="                                     "
-F[7]="                                     "
-F[8]="                                     "
+  read -r -d '' FRAME_0 << 'ART'
 
-# F1: tiny ring (r≈2)
-F[9]="                                     "
-F[10]="                                     "
-F[11]="                                     "
-F[12]="               · ○ ·                 "
-F[13]="              ○  ●  ○                "
-F[14]="               · ○ ·                 "
-F[15]="                                     "
-F[16]="                                     "
-F[17]="                                     "
 
-# F2: small ring (r≈4)
-F[18]="                                     "
-F[19]="                                     "
-F[20]="             ·  ○○○  ·               "
-F[21]="            ○         ○              "
-F[22]="           ·○    ●    ○·             "
-F[23]="            ○         ○              "
-F[24]="             ·  ○○○  ·               "
-F[25]="                                     "
-F[26]="                                     "
 
-# F3: medium ring (r≈6)
-F[27]="                                     "
-F[28]="           ·  ○○○○○  ·               "
-F[29]="          ○           ○              "
-F[30]="         ○      ●      ○             "
-F[31]="         ○             ○             "
-F[32]="          ○           ○              "
-F[33]="           ·  ○○○○○  ·               "
-F[34]="                                     "
-F[35]="                                     "
 
-# F4: large ring (r≈8)
-F[36]="         ·  ○○○○○○○  ·               "
-F[37]="        ○               ○            "
-F[38]="       ○                 ○           "
-F[39]="       ○        ●        ○           "
-F[40]="       ○                 ○           "
-F[41]="        ○               ○            "
-F[42]="         ·  ○○○○○○○  ·               "
-F[43]="                                     "
-F[44]="                                     "
+                  ●
 
-# F5: full ring (r≈10)
-F[45]="       ·  ○○○○○○○○○○  ·              "
-F[46]="      ○                  ○           "
-F[47]="     ○                    ○          "
-F[48]="     ○         ●          ○          "
-F[49]="     ○                    ○          "
-F[50]="      ○                  ○           "
-F[51]="       ·  ○○○○○○○○○○  ·              "
-F[52]="                                     "
-F[53]="                                     "
 
-# ─── Draw helpers ─────────────────────────────────────────────────────────────
 
-draw_frame() {
-  local frame=$1
-  local color=$2
-  local base=$(( frame * FRAME_HEIGHT ))
-  for ((l = 0; l < FRAME_HEIGHT; l++)); do
-    printf "  ${color}%s${RESET}\n" "${F[$((base + l))]}"
-  done
-}
 
-erase_frame() {
-  # Move cursor up FRAME_HEIGHT lines and clear each
-  printf "\033[%dA" "$FRAME_HEIGHT"
-  for ((l = 0; l < FRAME_HEIGHT; l++)); do
-    printf '\r\033[K\n'
-  done
-  printf "\033[%dA" "$FRAME_HEIGHT"
-}
+ART
 
-draw_bar() {
-  local label="$1"
-  local color="$2"
-  local pct="$3"
-  local width=28
-  local filled=$(( pct * width / 100 ))
-  local bar=""
-  for ((i = 0; i < filled; i++));        do bar="${bar}▓"; done
-  for ((i = filled; i < width; i++));    do bar="${bar}░"; done
-  printf "\r\033[K  ${color}${BOLD}%-7s${RESET}  ${DIM}▕${RESET}${color}%s${RESET}${DIM}▏${RESET}\n" "$label" "$bar"
-}
+  read -r -d '' FRAME_1 << 'ART'
 
-# ─── Phase animation ──────────────────────────────────────────────────────────
 
-animate_phase() {
-  local label="$1"
-  local color="$2"
-  local reverse="$3"   # 1 = shrink (exhale/hold-after-exhale)
 
-  local total_steps=$(( PHASE_SECONDS * 12 ))  # 12 fps
-  local sleep_ms="0.083"
+               · ○ ·
+              ○  ●  ○
+               · ○ ·
 
-  local prev_frame=-1
 
-  for ((step = 0; step <= total_steps; step++)); do
-    local pct=$(( step * 100 / total_steps ))
 
-    # Map pct → frame index
-    local frame_idx
-    if [[ "$reverse" == "1" ]]; then
-      frame_idx=$(( TOTAL_FRAMES - 1 - (pct * (TOTAL_FRAMES - 1) / 100) ))
-    else
-      frame_idx=$(( pct * (TOTAL_FRAMES - 1) / 100 ))
-    fi
+ART
 
-    # Only redraw if frame changed
-    if [[ $frame_idx != $prev_frame ]]; then
-      if [[ $step -gt 0 ]]; then
-        erase_frame
+  read -r -d '' FRAME_2 << 'ART'
+
+
+            ·  ○ ○ ○  ·
+           ○           ○
+           ○     ●     ○
+           ○           ○
+            ·  ○ ○ ○  ·
+
+
+ART
+
+  read -r -d '' FRAME_3 << 'ART'
+
+          ·  ○ ○ ○ ○ ○  ·
+         ○               ○
+        ○                 ○
+        ○        ●        ○
+        ○                 ○
+         ○               ○
+          ·  ○ ○ ○ ○ ○  ·
+
+ART
+
+  read -r -d '' FRAME_4 << 'ART'
+        ·  ○ ○ ○ ○ ○ ○ ○  ·
+       ○                   ○
+      ○                     ○
+     ○                       ○
+     ○           ●           ○
+     ○                       ○
+      ○                     ○
+       ○                   ○
+        ·  ○ ○ ○ ○ ○ ○ ○  ·
+ART
+
+  read -r -d '' FRAME_5 << 'ART'
+     ·  ○ ○ ○ ○ ○ ○ ○ ○ ○  ·
+    ○                       ○
+   ○                         ○
+  ○                           ○
+  ○             ●             ○
+  ○                           ○
+   ○                         ○
+    ○                       ○
+     ·  ○ ○ ○ ○ ○ ○ ○ ○ ○  ·
+ART
+
+  FRAMES=("$FRAME_0" "$FRAME_1" "$FRAME_2" "$FRAME_3" "$FRAME_4" "$FRAME_5")
+  NUM_FRAMES=${#FRAMES[@]}
+
+  draw_frame() {
+    local idx=$1 color=$2
+    local IFS=$'\n'
+    local lines
+    read -r -d '' -a lines <<< "${FRAMES[$idx]}" || true
+    for line in "${lines[@]}"; do
+      printf "  ${color}%s${RESET}\n" "$line"
+    done
+  }
+
+  erase_block() {
+    local n=$1
+    printf "\033[%dA" "$n"
+    for ((i = 0; i < n; i++)); do
+      printf '\r\033[K\n'
+    done
+    printf "\033[%dA" "$n"
+  }
+
+  draw_bar() {
+    local label=$1 color=$2 pct=$3
+    local w=30 filled=$(( pct * 30 / 100 ))
+    local bar=""
+    for ((i=0; i<filled; i++));  do bar+="▓"; done
+    for ((i=filled; i<w; i++)); do bar+="░"; done
+    printf "\r\033[K  ${color}${BOLD}%-8s${RESET} ${DIM}▕${RESET}${color}%s${RESET}${DIM}▏${RESET}" "$label" "$bar"
+  }
+
+  animate_phase() {
+    local label=$1 color=$2 direction=$3   # direction: "grow" or "shrink"
+    local total=$(( PHASE_SECONDS * FPS ))
+    local delay
+    delay=$(awk "BEGIN {printf \"%.4f\", 1.0/$FPS}")
+    local prev_fi=-1
+
+    for ((s=0; s<=total; s++)); do
+      local pct=$(( s * 100 / total ))
+      local fi
+      if [[ "$direction" == "shrink" ]]; then
+        fi=$(( (NUM_FRAMES-1) - pct*(NUM_FRAMES-1)/100 ))
+      else
+        fi=$(( pct*(NUM_FRAMES-1)/100 ))
       fi
-      draw_frame "$frame_idx" "$color"
-      prev_frame=$frame_idx
-    else
-      # Just move up past frame, update bar, move back down
-      printf "\033[%dA" "$FRAME_HEIGHT"
-      printf "\033[%dB" "$FRAME_HEIGHT"
-    fi
 
-    # Update bar (always overwrite)
-    printf "\r\033[1A"         # go up 1 (bar line)
-    draw_bar "$label" "$color" "$pct"
+      if (( fi != prev_fi )); then
+        (( prev_fi >= 0 )) && erase_block $((LINES_PER_FRAME + 1))
+        draw_frame "$fi" "$color"
+        printf "\n"  # bar line placeholder
+        prev_fi=$fi
+      fi
 
-    sleep "$sleep_ms"
+      # update bar (cursor is after the bar line)
+      printf "\033[1A"
+      draw_bar "$label" "$color" "$pct"
+      printf "\n"
+      sleep "$delay"
+    done
+    erase_block $((LINES_PER_FRAME + 1))
+  }
+
+  hold_phase() {
+    local label=$1 color=$2 frame_idx=$3
+    local total=$(( PHASE_SECONDS * FPS ))
+    local delay
+    delay=$(awk "BEGIN {printf \"%.4f\", 1.0/$FPS}")
+
+    draw_frame "$frame_idx" "$color"
+    printf "\n"
+
+    for ((s=0; s<=total; s++)); do
+      local pct=$(( s * 100 / total ))
+      printf "\033[1A"
+      draw_bar "$label" "$color" "$pct"
+      printf "\n"
+      sleep "$delay"
+    done
+    erase_block $((LINES_PER_FRAME + 1))
+  }
+
+  # ── Main animation ───────────────────────────────────────────────────────
+  clear
+  printf "\n"
+  printf "  ${DIM}┌──────────────────────────────────┐${RESET}\n"
+  printf "  ${DIM}│${RESET}   ${BOLD}${CYAN}z e n${RESET}   ${DIM}·  box breathing 4×4  │${RESET}\n"
+  printf "  ${DIM}└──────────────────────────────────┘${RESET}\n"
+  printf "\n"
+  sleep 0.8
+
+  for ((r=1; r<=TOTAL_ROUNDS; r++)); do
+    printf "  ${DIM}· round %d of %d ·${RESET}\n\n" "$r" "$TOTAL_ROUNDS"
+
+    animate_phase "INHALE"  "$CYAN"    "grow"
+    hold_phase    "HOLD"    "$GREEN"   "$((NUM_FRAMES-1))"
+    animate_phase "EXHALE"  "$MAGENTA" "shrink"
+    hold_phase    "HOLD"    "$YELLOW"  "0"
+
+    # clear round header
+    printf "\033[2A"
+    printf '\r\033[K\n\r\033[K\n'
+    printf "\033[2A"
   done
+
+  printf "\n"
+  printf "  ${GREEN}${BOLD}✦  complete${RESET}  ${DIM}·  you are here now${RESET}\n"
+  printf "\n"
+  sleep 3
+  exit 0
+fi
+
+# ─── Launcher mode: open a real terminal window ──────────────────────────────
+
+DONE_FILE=$(mktemp /tmp/zen-breathe.XXXXX)
+rm -f "$DONE_FILE"
+
+# Detect which terminal app to use
+launch_in_terminal() {
+  if pgrep -qx "iTerm2" 2>/dev/null; then
+    osascript <<EOF
+tell application "iTerm2"
+  activate
+  set newWindow to (create window with default profile)
+  tell current session of newWindow
+    write text "bash '${SCRIPT_PATH}' --direct; touch '${DONE_FILE}'; exit"
+  end tell
+end tell
+EOF
+  elif pgrep -qx "WarpTerminal" 2>/dev/null; then
+    osascript <<EOF
+tell application "Warp"
+  activate
+  tell application "System Events"
+    tell process "Warp"
+      keystroke "t" using command down
+      delay 0.3
+      keystroke "bash '${SCRIPT_PATH}' --direct; touch '${DONE_FILE}'; exit"
+      key code 36
+    end tell
+  end tell
+end tell
+EOF
+  else
+    osascript <<EOF
+tell application "Terminal"
+  activate
+  do script "bash '${SCRIPT_PATH}' --direct; touch '${DONE_FILE}'; exit"
+end tell
+EOF
+  fi
 }
 
-hold_phase() {
-  local label="$1"
-  local color="$2"
-  local frame="$3"   # which frame to hold (0 or TOTAL_FRAMES-1)
+launch_in_terminal
 
-  draw_frame "$frame" "$color"
-
-  local total_steps=$(( PHASE_SECONDS * 12 ))
-  local sleep_ms="0.083"
-
-  for ((step = 0; step <= total_steps; step++)); do
-    local pct=$(( step * 100 / total_steps ))
-    printf "\r\033[1A"
-    draw_bar "$label" "$color" "$pct"
-    sleep "$sleep_ms"
-  done
-
-  erase_frame
-}
-
-# ─── Main ─────────────────────────────────────────────────────────────────────
-
-clear
-printf "\n"
-printf "  ${DIM}┌────────────────────────────────┐${RESET}\n"
-printf "  ${DIM}│${RESET}  ${BOLD}${CYAN}z e n${RESET}  ${DIM}·  box breathing  4×4  │${RESET}\n"
-printf "  ${DIM}└────────────────────────────────┘${RESET}\n"
-printf "\n"
-sleep 0.8
-
-for ((round = 1; round <= TOTAL_ROUNDS; round++)); do
-  printf "  ${DIM}· round %d of %d ·${RESET}\n\n" "$round" "$TOTAL_ROUNDS"
-
-  # Blank bar line (animate_phase will overwrite)
-  printf "\n"
-
-  animate_phase "INHALE"  "$CYAN"    "0"
-  erase_frame
-  hold_phase    "HOLD"    "$GREEN"   "$((TOTAL_FRAMES - 1))"
-  printf "\n"
-  animate_phase "EXHALE"  "$MAGENTA" "1"
-  erase_frame
-  hold_phase    "HOLD"    "$YELLOW"  "0"
-  printf "\n"
-
-  # Clear round label + blank + bar line
-  printf "\033[4A"
-  for ((i=0; i<4; i++)); do printf '\r\033[K\n'; done
-  printf "\033[4A"
+# Wait for animation to finish
+while [ ! -f "$DONE_FILE" ]; do
+  sleep 1
 done
+rm -f "$DONE_FILE"
 
-printf "\n  ${GREEN}${BOLD}✦  complete${RESET}  ${DIM}·  you are here now${RESET}\n\n"
+echo "Breathing exercise complete."
