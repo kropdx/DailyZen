@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-# Zen 4x4 Breathing Exercise — simple countup, no ANSI tricks.
-# Works in Claude Code's Bash tool (buffered stdout, no cursor movement).
+# Zen 4x4 breathing — minimal output for Claude Code's narrow Bash panel.
 
 ROUNDS=4
-SECONDS_PER_PHASE=4
+SECS=4
 
-countup() {
+phase() {
   local label="$1"
-  printf "  %-8s " "$label"
-  for ((i = 1; i <= SECONDS_PER_PHASE; i++)); do
+  printf "%-7s " "$label"
+  for ((i = 1; i <= SECS; i++)); do
     sleep 1
     printf "%d " "$i"
   done
@@ -16,19 +15,17 @@ countup() {
 }
 
 echo ""
-echo "  ┌──────────────────────────────┐"
-echo "  │  z e n  ·  box breathing 4×4 │"
-echo "  └──────────────────────────────┘"
+echo "zen · 4x4 breathing"
 echo ""
 
 for ((r = 1; r <= ROUNDS; r++)); do
-  echo "  · round $r of $ROUNDS ·"
-  countup "INHALE"
-  countup "HOLD"
-  countup "EXHALE"
-  countup "HOLD"
+  echo "round $r/$ROUNDS"
+  phase "INHALE"
+  phase "HOLD"
+  phase "EXHALE"
+  phase "HOLD"
   echo ""
 done
 
-echo "  ✦ complete · you are here now"
+echo "done."
 echo ""
