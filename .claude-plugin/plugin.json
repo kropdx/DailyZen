@@ -1,0 +1,12 @@
+{
+  "name": "zen",
+  "description": "A mindfulness break for developers. Displays a random zen quote and guides you through a 4x4 breathing exercise right in your terminal.",
+  "version": "1.0.0",
+  "author": {
+    "name": "kropdx"
+  },
+  "repository": "https://github.com/kropdx/zen",
+  "homepage": "https://github.com/kropdx/zen",
+  "keywords": ["zen", "mindfulness", "breathing", "wellness", "break", "meditation"],
+  "license": "MIT"
+}

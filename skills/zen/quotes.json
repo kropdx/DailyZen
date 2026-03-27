@@ -1,0 +1,628 @@
+[
+  {
+    "rank": 1,
+    "quote": "Nature does not hurry, yet everything is accomplished.",
+    "author": "Lao Tzu",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 2,
+    "quote": "The journey of a thousand miles begins with a single step.",
+    "author": "Lao Tzu",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 3,
+    "quote": "Each morning we are born again. What we do today is what matters most.",
+    "author": "Buddha",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 4,
+    "quote": "When you realize nothing is lacking, the whole world belongs to you.",
+    "author": "Lao Tzu",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 5,
+    "quote": "The wound is the place where the Light enters you.",
+    "author": "Rumi",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 6,
+    "quote": "What you seek is seeking you.",
+    "author": "Rumi",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 7,
+    "quote": "Raise your words, not voice. It is rain that grows flowers, not thunder.",
+    "author": "Rumi",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 8,
+    "quote": "Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.",
+    "author": "Rumi",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 9,
+    "quote": "You are not a drop in the ocean. You are the entire ocean in a drop.",
+    "author": "Rumi"
+  },
+  {
+    "rank": 10,
+    "quote": "No mud, no lotus.",
+    "author": "Thich Nhat Hanh",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 11,
+    "quote": "The cave you fear to enter holds the treasure you seek.",
+    "author": "Joseph Campbell"
+  },
+  {
+    "rank": 12,
+    "quote": "Hatred does not cease by hatred, but only by love.",
+    "author": "Buddha",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 13,
+    "quote": "Muddy water, let stand, becomes clear.",
+    "author": "Lao Tzu"
+  },
+  {
+    "rank": 14,
+    "quote": "Silence is a source of great strength.",
+    "author": "Lao Tzu"
+  },
+  {
+    "rank": 15,
+    "quote": "Those who know do not speak. Those who speak do not know.",
+    "author": "Lao Tzu"
+  },
+  {
+    "rank": 16,
+    "quote": "To know that you do not know is the best.",
+    "author": "Lao Tzu"
+  },
+  {
+    "rank": 17,
+    "quote": "Wherever you go, there you are.",
+    "author": "Jon Kabat-Zinn"
+  },
+  {
+    "rank": 18,
+    "quote": "You can't stop the waves, but you can learn to surf.",
+    "author": "Jon Kabat-Zinn"
+  },
+  {
+    "rank": 19,
+    "quote": "If your mind is empty, it is always ready for anything; it is open to everything.",
+    "author": "Shunryu Suzuki"
+  },
+  {
+    "rank": 20,
+    "quote": "In the beginner's mind there are many possibilities, but in the expert's there are few.",
+    "author": "Shunryu Suzuki",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 21,
+    "quote": "Even after all this time, the sun never says to the earth, 'You owe me.'",
+    "author": "Hafiz",
+    "lens": "Mystics & Soul"
+  },
+  {
+    "rank": 22,
+    "quote": "As you start to walk on the way, the way appears.",
+    "author": "Rumi",
+    "lens": "Mystics & Soul"
+  },
+  {
+    "rank": 23,
+    "quote": "Respond to every call that excites your spirit.",
+    "author": "Rumi",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 24,
+    "quote": "Everything has beauty, but not everyone sees it.",
+    "author": "Confucius"
+  },
+  {
+    "rank": 25,
+    "quote": "Respect yourself and others will respect you.",
+    "author": "Confucius",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 26,
+    "quote": "Be kind whenever possible. It is always possible.",
+    "author": "Dalai Lama",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 27,
+    "quote": "The whole moon and the entire sky are reflected in one dewdrop on the grass.",
+    "author": "Dōgen"
+  },
+  {
+    "rank": 28,
+    "quote": "Sitting quietly, doing nothing, spring comes, and the grass grows by itself.",
+    "author": "Matsuo Bashō"
+  },
+  {
+    "rank": 29,
+    "quote": "It does not matter how slowly you go as long as you do not stop.",
+    "author": "Confucius",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 30,
+    "quote": "Life is really simple, but we insist on making it complicated.",
+    "author": "Confucius"
+  },
+  {
+    "rank": 31,
+    "quote": "Because you are alive, everything is possible.",
+    "author": "Thich Nhat Hanh",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 32,
+    "quote": "Smile, breathe, and go slowly.",
+    "author": "Thich Nhat Hanh",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 33,
+    "quote": "The wave does not need to die to become water.",
+    "author": "Thich Nhat Hanh",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 34,
+    "quote": "Walk as if you are kissing the Earth with your feet.",
+    "author": "Thich Nhat Hanh",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 35,
+    "quote": "Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.",
+    "author": "Thich Nhat Hanh",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 36,
+    "quote": "The present moment is filled with joy and happiness. If you are attentive, you will see it.",
+    "author": "Thich Nhat Hanh",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 37,
+    "quote": "If the path before you is clear, you're probably on someone else's.",
+    "author": "Joseph Campbell"
+  },
+  {
+    "rank": 38,
+    "quote": "We must be willing to let go of the life we planned so as to have the life that is waiting for us.",
+    "author": "Joseph Campbell"
+  },
+  {
+    "rank": 39,
+    "quote": "Let your life lightly dance on the edges of Time like dew on the tip of a leaf.",
+    "author": "Rabindranath Tagore",
+    "lens": "Mystics & Soul"
+  },
+  {
+    "rank": 40,
+    "quote": "You can't cross the sea merely by standing and staring at the water.",
+    "author": "Rabindranath Tagore",
+    "lens": "Mystics & Soul"
+  },
+  {
+    "rank": 41,
+    "quote": "The quieter you become, the more you can hear.",
+    "author": "Ram Dass"
+  },
+  {
+    "rank": 42,
+    "quote": "We're all just walking each other home.",
+    "author": "Ram Dass",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 43,
+    "quote": "Relax. Nothing is under control.",
+    "author": "Adi Shankara"
+  },
+  {
+    "rank": 44,
+    "quote": "The only way to make sense out of change is to plunge into it, move with it, and join the dance.",
+    "author": "Alan Watts"
+  },
+  {
+    "rank": 45,
+    "quote": "Fall seven times, stand up eight.",
+    "author": "Japanese Proverb"
+  },
+  {
+    "rank": 46,
+    "quote": "This too shall pass.",
+    "author": "Persian Proverb"
+  },
+  {
+    "rank": 47,
+    "quote": "Clouds come floating into my life, no longer to carry rain or usher storm, but to add color to my sunset sky.",
+    "author": "Rabindranath Tagore",
+    "lens": "Mystics & Soul"
+  },
+  {
+    "rank": 48,
+    "quote": "The obstacle is the path.",
+    "author": "Zen Proverb"
+  },
+  {
+    "rank": 49,
+    "quote": "This is the real secret of life—to be completely engaged with what you are doing in the here and now.",
+    "author": "Alan Watts",
+    "lens": "Mystics & Soul"
+  },
+  {
+    "rank": 50,
+    "quote": "You are the sky. Everything else—it's just the weather.",
+    "author": "Pema Chödrön",
+    "lens": "Eastern Wisdom"
+  },
+  {
+    "rank": 51,
+    "quote": "The best time to plant a tree was twenty years ago. The second best time is now.",
+    "author": "Chinese Proverb"
+  },
+  {
+    "rank": 52,
+    "quote": "You must be the change you wish to see in the world.",
+    "author": "Mahatma Gandhi"
+  },
+  {
+    "rank": 53,
+    "quote": "Darkness cannot drive out darkness; only light can do that.",
+    "author": "Martin Luther King Jr.",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 54,
+    "quote": "It always seems impossible until it's done.",
+    "author": "Nelson Mandela",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 55,
+    "quote": "Imagination is more important than knowledge.",
+    "author": "Albert Einstein",
+    "lens": "Makers & Competitors"
+  },
+  {
+    "rank": 56,
+    "quote": "In the middle of difficulty lies opportunity.",
+    "author": "Albert Einstein",
+    "lens": "Makers & Competitors"
+  },
+  {
+    "rank": 57,
+    "quote": "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+    "author": "Mahatma Gandhi",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 58,
+    "quote": "Faith is taking the first step even when you don't see the whole staircase.",
+    "author": "Martin Luther King Jr.",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 59,
+    "quote": "Love is the only force capable of transforming an enemy into a friend.",
+    "author": "Martin Luther King Jr.",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 60,
+    "quote": "Courage is not the absence of fear, but the triumph over it.",
+    "author": "Nelson Mandela"
+  },
+  {
+    "rank": 61,
+    "quote": "I learned that courage was not the absence of fear, but the triumph over it.",
+    "author": "Nelson Mandela",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 62,
+    "quote": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+    "author": "Nelson Mandela"
+  },
+  {
+    "rank": 63,
+    "quote": "If you're going through hell, keep going.",
+    "author": "Winston Churchill"
+  },
+  {
+    "rank": 64,
+    "quote": "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.",
+    "author": "Albert Einstein",
+    "lens": "Makers & Competitors"
+  },
+  {
+    "rank": 65,
+    "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "author": "Winston Churchill"
+  },
+  {
+    "rank": 66,
+    "quote": "A smooth sea never made a skilled sailor.",
+    "author": "Franklin D. Roosevelt"
+  },
+  {
+    "rank": 67,
+    "quote": "You have power over your mind—not outside events.",
+    "author": "Marcus Aurelius",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 68,
+    "quote": "No one can make you feel inferior without your consent.",
+    "author": "Eleanor Roosevelt",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 69,
+    "quote": "You must do the thing you think you cannot do.",
+    "author": "Eleanor Roosevelt",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 70,
+    "quote": "Dwell on the beauty of life. Watch the stars, and see yourself running with them.",
+    "author": "Marcus Aurelius",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 71,
+    "quote": "The impediment to action advances action. What stands in the way becomes the way.",
+    "author": "Marcus Aurelius"
+  },
+  {
+    "rank": 72,
+    "quote": "Waste no more time arguing what a good man should be. Be one.",
+    "author": "Marcus Aurelius",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 73,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Steve Jobs"
+  },
+  {
+    "rank": 74,
+    "quote": "The only way to do great work is to love what you do.",
+    "author": "Steve Jobs",
+    "lens": "Modern Voices"
+  },
+  {
+    "rank": 75,
+    "quote": "Be yourself; everyone else is already taken.",
+    "author": "Oscar Wilde",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 76,
+    "quote": "Let your light shine before others.",
+    "author": "Jesus",
+    "lens": "Sacred Wisdom"
+  },
+  {
+    "rank": 77,
+    "quote": "Love your neighbor as yourself.",
+    "author": "Jesus",
+    "lens": "Sacred Wisdom"
+  },
+  {
+    "rank": 78,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Steve Jobs",
+    "lens": "Modern Voices"
+  },
+  {
+    "rank": 79,
+    "quote": "Life is either a daring adventure or nothing at all.",
+    "author": "Helen Keller",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 80,
+    "quote": "Simplicity is the ultimate sophistication.",
+    "author": "Leonardo da Vinci"
+  },
+  {
+    "rank": 81,
+    "quote": "People will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
+    "author": "Maya Angelou"
+  },
+  {
+    "rank": 82,
+    "quote": "To live is the rarest thing in the world. Most people exist, that is all.",
+    "author": "Oscar Wilde",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 83,
+    "quote": "The two most important days in your life are the day you are born and the day you find out why.",
+    "author": "Mark Twain"
+  },
+  {
+    "rank": 84,
+    "quote": "Adopt the pace of nature: her secret is patience.",
+    "author": "Ralph Waldo Emerson",
+    "lens": "Writers & Poets"
+  },
+  {
+    "rank": 85,
+    "quote": "We suffer more often in imagination than in reality.",
+    "author": "Seneca",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 86,
+    "quote": "Believe you can and you're halfway there.",
+    "author": "Theodore Roosevelt",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 87,
+    "quote": "Comparison is the thief of joy.",
+    "author": "Theodore Roosevelt"
+  },
+  {
+    "rank": 88,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Theodore Roosevelt",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 89,
+    "quote": "The best and most beautiful things in the world cannot be seen or even touched — they must be felt with the heart.",
+    "author": "Helen Keller"
+  },
+  {
+    "rank": 90,
+    "quote": "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+    "author": "Ralph Waldo Emerson"
+  },
+  {
+    "rank": 91,
+    "quote": "Absorb what is useful, discard what is not.",
+    "author": "Bruce Lee",
+    "lens": "Makers & Competitors"
+  },
+  {
+    "rank": 92,
+    "quote": "Be water, my friend.",
+    "author": "Bruce Lee",
+    "lens": "Makers & Competitors"
+  },
+  {
+    "rank": 93,
+    "quote": "The future depends on what you do today.",
+    "author": "Mahatma Gandhi",
+    "lens": "Philosophy"
+  },
+  {
+    "rank": 94,
+    "quote": "There is more to life than increasing its speed.",
+    "author": "Mahatma Gandhi"
+  },
+  {
+    "rank": 95,
+    "quote": "Impossible is just a big word thrown around by small men.",
+    "author": "Muhammad Ali",
+    "lens": "Makers & Competitors"
+  },
+  {
+    "rank": 96,
+    "quote": "The measure of intelligence is the ability to change.",
+    "author": "Albert Einstein"
+  },
+  {
+    "rank": 97,
+    "quote": "Life's most persistent and urgent question is, 'What are you doing for others?'",
+    "author": "Martin Luther King Jr.",
+    "lens": "Courage & Service"
+  },
+  {
+    "rank": 98,
+    "quote": "Not all those who wander are lost.",
+    "author": "J.R.R. Tolkien"
+  },
+  {
+    "rank": 99,
+    "quote": "Life is what happens when you're busy making other plans.",
+    "author": "John Lennon"
+  },
+  {
+    "rank": 100,
+    "quote": "To improve is to change; to be perfect is to change often.",
+    "author": "Winston Churchill"
+  },
+  {
+    "rank": 101,
+    "quote": "The most beautiful experience we can have is the mysterious.",
+    "author": "Albert Einstein"
+  },
+  {
+    "rank": 102,
+    "quote": "The true sign of intelligence is not knowledge but imagination.",
+    "author": "Albert Einstein"
+  },
+  {
+    "rank": 103,
+    "quote": "Find out who you are and do it on purpose.",
+    "author": "Dolly Parton",
+    "lens": "Modern Voices"
+  },
+  {
+    "rank": 104,
+    "quote": "Don't cry because it's over, smile because it happened.",
+    "author": "Dr. Seuss"
+  },
+  {
+    "rank": 105,
+    "quote": "I have not failed. I've just found 10,000 ways that won't work.",
+    "author": "Thomas Edison"
+  },
+  {
+    "rank": 106,
+    "quote": "Between stimulus and response there is a space. In that space is our power to choose our response.",
+    "author": "Viktor Frankl"
+  },
+  {
+    "rank": 107,
+    "quote": "Well done is better than well said.",
+    "author": "Benjamin Franklin"
+  },
+  {
+    "rank": 108,
+    "quote": "Do one thing every day that scares you.",
+    "author": "Eleanor Roosevelt"
+  },
+  {
+    "rank": 109,
+    "quote": "There is a crack in everything. That's how the light gets in.",
+    "author": "Leonard Cohen"
+  },
+  {
+    "rank": 110,
+    "quote": "It is never too late to be what you might have been.",
+    "author": "George Eliot"
+  },
+  {
+    "rank": 111,
+    "quote": "Have the courage to follow your heart and intuition.",
+    "author": "Steve Jobs",
+    "lens": "Modern Voices"
+  },
+  {
+    "rank": 112,
+    "quote": "You miss 100% of the shots you don't take.",
+    "author": "Wayne Gretzky"
+  },
+  {
+    "rank": 113,
+    "quote": "I am an old man and have known a great many troubles, but most of them never happened.",
+    "author": "Mark Twain"
+  }
+]

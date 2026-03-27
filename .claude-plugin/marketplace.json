@@ -1,0 +1,17 @@
+{
+  "name": "zen-marketplace",
+  "owner": {
+    "name": "kropdx"
+  },
+  "metadata": {
+    "description": "Mindfulness tools for developers using Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "zen",
+      "source": ".",
+      "description": "Random zen quotes + guided 4x4 breathing exercise in your terminal",
+      "version": "1.0.0"
+    }
+  ]
+}
