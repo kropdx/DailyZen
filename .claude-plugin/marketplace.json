@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "zen",
-      "source": ".",
+      "source": { "type": "github", "repo": "kropdx/zen" },
       "description": "Random zen quotes + guided 4x4 breathing exercise in your terminal",
       "version": "1.0.0"
     }
