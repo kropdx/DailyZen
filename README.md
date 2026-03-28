@@ -17,18 +17,19 @@ A random inspirational quote in your terminal. A moment of clarity between commi
 
 ## Auto-zen on session start
 
-Show a quote every time Claude Code starts by adding a hook to `~/.claude/settings.json`:
+To show a quote every time Claude Code starts, add a `SessionStart` hook to `~/.claude/settings.json`.
+
+> **Note:** Hooks run shell commands, not skills — `/dailyzen` won't work here. Use the `node` command below to read directly from the installed quotes file.
 
 ```json
 {
   "hooks": {
     "SessionStart": [
       {
-        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "/dailyzen"
+            "command": "node -e \"const q=require(process.env.HOME+'/.claude/plugins/marketplaces/dailyzen/skills/zen/quotes.json');const r=q[Math.floor(Math.random()*q.length)];console.log('\\\"'+r.quote+'\\\"\\n  — '+r.author);\""
           }
         ]
       }
