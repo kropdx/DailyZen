@@ -9,7 +9,7 @@
     {
       "name": "zen",
       "description": "Random zen quotes + guided 4x4 breathing exercise in your terminal",
-      "version": "1.3.4",
+      "version": "1.3.5",
       "author": {
         "name": "kropdx",
         "url": "https://github.com/kropdx"
