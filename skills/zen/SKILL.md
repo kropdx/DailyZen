@@ -16,20 +16,9 @@ Read the quotes file at `${CLAUDE_SKILL_DIR}/quotes.json`. Pick one quote at ran
 Display it like this (use the exact formatting, including the author on a new line):
 
 ```
-  ------------------------------------------------
+"<quote text here>"
 
-    "{quote text here}"
-
-                              — Author Name
-
-  ------------------------------------------------
-```
-
-Pause briefly after showing the quote. Then say:
-
-```
-  Take a breath. Let's do a 4x4 breathing exercise.
-  4 rounds. 4 seconds each phase. ~60 seconds total.
+  — Author Name
 ```
 
 ## Step 2: Run the Breathing Exercise
@@ -40,12 +29,7 @@ Execute the breathing script:
 bash "${CLAUDE_SKILL_DIR}/scripts/breathe.sh"
 ```
 
-This runs an animated terminal breathing exercise:
-- INHALE (4 seconds, animated progress bar)
-- HOLD (4 seconds)
-- EXHALE (4 seconds)
-- HOLD (4 seconds)
-- Repeated 4 times
+Do NOT add any intro text before running the script. The script handles its own countdown and timing.
 
 ## Step 3: Close
 
