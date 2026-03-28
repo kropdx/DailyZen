@@ -3,6 +3,7 @@ name: zen
 description: Take a mindfulness break. Displays a random zen quote and guides you through a calming 4x4 breathing exercise right in your terminal. Use when you need to pause, reset, or decompress during a coding session.
 disable-model-invocation: true
 allowed-tools: Read
+effort: high
 ---
 
 # Zen - A Mindfulness Break
