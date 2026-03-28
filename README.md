@@ -15,6 +15,28 @@ A random inspirational quote in your terminal. A moment of clarity between commi
 /dailyzen
 ```
 
+## Auto-zen on session start
+
+Show a quote every time Claude Code starts by adding a hook to `~/.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/dailyzen"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 ## License
 
 MIT
