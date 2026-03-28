@@ -1,7 +1,6 @@
 ---
 name: dailyzen
 description: Return one randomly selected quote from 113 curated quotes.
-disable-model-invocation: true
 allowed-tools: Read
 ---
 
