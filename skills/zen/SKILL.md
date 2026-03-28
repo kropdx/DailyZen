@@ -13,7 +13,7 @@ When invoked, do the following in order:
 
 Read the quotes file at `${CLAUDE_SKILL_DIR}/quotes.json`. Pick one quote at random.
 
-Display it like this (use the exact formatting, including the author on a new line):
+Display it like this:
 
 ```
 "<quote text here>"
@@ -21,21 +21,29 @@ Display it like this (use the exact formatting, including the author on a new li
   — Author Name
 ```
 
-## Step 2: Run the Breathing Exercise
+## Step 2: Breathing Exercise
 
-Execute the breathing script:
+Run the entire breathing exercise using Bash `sleep` commands to control timing. Output each line one at a time using separate Bash calls or a single script with echo + sleep.
+
+First, display a countdown. Run this exact bash command:
 
 ```bash
-bash "${CLAUDE_SKILL_DIR}/scripts/breathe.sh"
+for i in 10 9 8 7 6 5 4 3 2 1; do echo "$i"; sleep 1; done
 ```
 
-Do NOT add any intro text before running the script. The script handles its own countdown and timing.
+Then for each round (4 rounds total), run this exact bash command:
 
-## Step 3: Close
+```bash
+echo "ROUND 1/4"; for phase in INHALE HOLD EXHALE HOLD; do for i in 1 2 3 4; do sleep 1; echo "$phase $i"; done; done
+```
 
-After the script completes, say one brief, calm closing line. Keep it simple and warm. Do not be verbose. Examples:
-- "Welcome back."
-- "Ready when you are."
-- "Back to it."
+Repeat for rounds 2, 3, and 4 (updating the round number each time).
 
-Do NOT summarize what just happened. Do NOT explain the benefits of breathing. Just a brief, grounded closing.
+After all 4 rounds, say only: "Done. Welcome back."
+
+## Important
+
+- Do NOT add any extra text before, between, or after the breathing rounds
+- Do NOT summarize or explain what happened
+- Do NOT describe the benefits of breathing
+- Keep it minimal
